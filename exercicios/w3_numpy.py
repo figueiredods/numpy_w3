@@ -171,3 +171,70 @@ print(newarr)
 
 newarr = np.vsplit(arr, 3)
 print(newarr)
+
+# Searching arrays
+
+arr = np.array([1, 2, 3, 4, 5, 4, 4])
+x = np.where(arr == 4)
+print(x)
+
+arr = np.array([10, 14, 93, 41, 8, 7])
+x = np.where( arr % 2 == 1)
+print(x)
+
+arr = np.array([10, 14, 93, 41, 8, 7])
+x = np.where(arr % 2 == 0)
+print(x)
+
+arr = np.array([6, 7, 7, 7, 7, 7, 8, 9])
+x = np.searchsorted(arr, 7) # return the position where the number 7 is lower than the next number
+print(x)
+
+x = np.searchsorted(arr, 7, side="right")
+print(x)
+
+arr = np.array([1, 3, 5, 7])
+x = np.searchsorted(arr, [2, 4, 6])
+print(x)
+
+# Sort arrays
+
+arr = np.array([3, 2, 0, 1])
+arr1 = np.sort(arr)
+print(arr)
+print(arr1)
+
+arr = np.array(["banana", "cherry", "apple"])
+print(np.sort(arr))
+
+arr = np.array([True, False, True])
+print(np.sort(arr))
+
+arr = np.array([[3, 2, 4], [5, 0, 1]])
+print(np.sort(arr)) # both arrays will be sorted
+
+# Filtering arrays
+
+arr = np.array([41, 42, 43, 44])
+x = [True, False, True, False]
+newarr = arr[x]
+print(newarr)
+
+filter_arr = []
+for i in arr:
+    if i > 42:
+        filter_arr.append(True)
+    else:
+        filter_arr.append(False)
+
+newarr = arr[filter_arr]
+print(filter_arr)
+print(newarr)
+
+arr = np.array([41, 42, 43, 44])
+filter_arr = arr > 42
+print(filter_arr)
+print(arr[filter_arr])
+filter_arr = arr % 2 == 0
+print(filter_arr)
+print(arr[filter_arr])
